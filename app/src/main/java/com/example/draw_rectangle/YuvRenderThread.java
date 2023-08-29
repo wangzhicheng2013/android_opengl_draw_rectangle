@@ -32,12 +32,17 @@ public class YuvRenderThread extends Thread {
             System.arraycopy(data, 0, nv12_y, 0, y_size);
             System.arraycopy(data, y_size, nv12_uv, 0, uv_size);
             Log.d(TAG, "get data:" + data.length);
-            float [] array = new float[4];
-            array[0] = 0.4875f;
-            array[1] = 0.38055557f;
-            array[2] = 0.60520834f;
-            array[3] = 0.6388889f;
-            mDisplaySurfaceView.mGLRender.setArray(4, array );
+            float [] array = new float[4 * 2];
+            array[0] = 0.41f;
+            array[1] = 0.48f;
+            array[2] = 0.52f;
+            array[3] = 0.62f;
+
+            array[4] = 0.63f;
+            array[5] = 0.61f;
+            array[6] = 0.71f;
+            array[7] = 0.80f;
+            mDisplaySurfaceView.mGLRender.setArray(4 * 2, array );
             ByteBuffer yBuffer = PublicTools.createByteBufferByImageData(nv12_y);
             ByteBuffer uvBuffer = PublicTools.createByteBufferByImageData(nv12_uv);
             mDisplaySurfaceView.mGLRender.setImageData(yBuffer, uvBuffer);

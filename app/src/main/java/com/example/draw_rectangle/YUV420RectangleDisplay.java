@@ -89,8 +89,6 @@ public class YUV420RectangleDisplay extends YUV420Display {
                         float[] array) {
         float[] positionCoords = getVertexPositions(rect);
         FloatBuffer vertexBuffer = getFloatBuffer(positionCoords);
-        GLES30.glUseProgram(mProgramId);
-        GLES30.glClear(GLES30.GL_COLOR_BUFFER_BIT | GLES30.GL_DEPTH_BUFFER_BIT);
         GLES30.glUniformMatrix4fv(mMatrixHandle, 1, false, mat.getArray(), 0);
 
         GLES30.glEnableVertexAttribArray(mPositionHandle);
